@@ -1,8 +1,8 @@
-const Reponse = ({ id, title, content }) => (
+const Reponse = ({ id, question, responseCardsIds }) => (
   <div>
     <h1>Réponse {id}</h1>
-    <h2>{title}</h2>
-    <p>{content}</p>
+    <h2>{question}</h2>
+    <p>{responseCardsIds}</p>
   </div>
 );
 

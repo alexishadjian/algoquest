@@ -1,13 +1,13 @@
 const reponses = [
     {
         id: 1,
-        title: "Réponse 1",
-        content: "Contenu de la réponse 1...",
+        question: "Question 1",
+        responseCardsIds: [1,2,3,1],
     },
     {
         id: 2,
-        title: "Réponse 2",
-        content: "Contenu de la réponse 2...",
+        question: "Question 2",
+        responseCardsIds: [1,3,2],
     },
 ];
 
