@@ -43,6 +43,7 @@ button {
 
 button.primary {
   background-color: #dea821;
+  color: #ffffff;
 }
 
 button.secondary {
