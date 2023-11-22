@@ -31,7 +31,6 @@ function App() {
               <Route index element={<HomePage />} />
               <Route path="/play/:id" element={<PlayPage />} />
               <Route path="/reponse/:id" element={<ReponsePage />} />
-            
             </Route>
           )
         )

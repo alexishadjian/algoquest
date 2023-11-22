@@ -6,8 +6,6 @@ const ReponsePage = () => {
   const { id } = useParams();
 
   const selectedReponse = reponses.find((reponse) => reponse.id.toString() === id);
-  // const selectedReponse = reponses.find((reponse) => reponse.id === parseInt(id, 10));
-
    
   if (!selectedReponse) {
     return <div>Réponse non trouvée</div>;

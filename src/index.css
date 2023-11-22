@@ -22,11 +22,14 @@ a:hover {
   color: #535bf2;
 }
 
+.root-layout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
 }
 
@@ -87,6 +90,7 @@ button {
   font-size: 1em;
   padding: 10px 20px;
   cursor: pointer;
+  margin: 0 10px;
   background-color: #2ecc71;
   color: #fff;
   border: none;
@@ -98,3 +102,10 @@ button:disabled {
   background-color: #bdc3c7;
   cursor: not-allowed;
 }
+
+.container {
+  display: flex;
+  flex-flow: column;
+  gap: 50px;
+  width: 400px;
+} 

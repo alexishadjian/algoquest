@@ -14,13 +14,12 @@ const Home = () => {
 
 
     return (
-        <div>
-            <div className="question">{datas.question}</div>
+        <div className="container">
+            <h3 className="question">{datas.question}</h3>
             <Timer />
-            <button className="" onClick={ () => setRepSate(!repSate)} >Show response</button>
+            <button className="" onClick={ () => setRepSate(!repSate)} >Show answer</button>
             {repSate ? (
                 <div>
-                    <p>{datas.responseCardsIds}</p>
                     {datas.responseCardsIds.map( (cardId, index) => (
                         <div className="prog-card" key={index}>
                             <ProgCard id={cardId} />

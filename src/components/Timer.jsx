@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const Timer = () => {
   const [time, setTime] = useState(300); // 300 secondes = 5 minutes
-  const [initialOffset, setInitialOffset] = useState(754);
-  const [dashOffset, setDashOffset] = useState(initialOffset);
+  const [initialOffset, setInitialOffset] = useState(754); // Ajusté en conséquence
+  const [dashOffset, setDashOffset] = useState(0); // Démarre avec le cercle plein
   const [isRunning, setIsRunning] = useState(false);
   const [isTimerStarted, setIsTimerStarted] = useState(false);
 
@@ -19,7 +19,7 @@ const Timer = () => {
   const resetTimer = () => {
     setIsRunning(false);
     setIsTimerStarted(false);
-    setDashOffset(initialOffset);
+    setDashOffset(0);
   };
 
   useEffect(() => {
@@ -28,12 +28,12 @@ const Timer = () => {
 
     if (isRunning) {
       interval = setInterval(() => {
-        if (i === time) {
+        if (i === time + 1) {
           clearInterval(interval);
           setIsRunning(false);
           return;
         }
-        setDashOffset((prevOffset) => prevOffset - (initialOffset / time));
+        setDashOffset((prevOffset) => prevOffset + (initialOffset / time));
         i++;
       }, 1000);
     }
@@ -61,8 +61,9 @@ const Timer = () => {
               strokeDasharray: initialOffset,
               strokeDashoffset: isTimerStarted ? dashOffset : initialOffset,
               transition: 'stroke-dashoffset 1s linear',
-              transform: 'rotate(-90deg)',
+              transform: 'rotate(-90deg) scaleY(-1)', // Inversion de la direction
               transformOrigin: '50% 50%',
+              strokeLinecap: 'round',
             }}
           />
           {isTimerStarted && (

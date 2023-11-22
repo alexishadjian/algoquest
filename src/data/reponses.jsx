@@ -1,8 +1,8 @@
 const reponses = [
     {
         id: 1,
-        question: "Question 1",
-        responseCardsIds: [1,2,3,1],
+        question: "Display a result of 10 with the numbers 4 and 6",
+        responseCardsIds: [1,2,8,13,17],
     },
     {
         id: 2,
