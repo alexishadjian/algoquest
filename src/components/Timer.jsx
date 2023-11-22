@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import sound from '../assets/timer.mp3'
 
 const Timer = () => {
-  const [time, setTime] = useState(300); // 300 secondes = 5 minutes
+  const [time, setTime] = useState(300);
   const [initialOffset, setInitialOffset] = useState(754);
   const [dashOffset, setDashOffset] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isTimerStarted, setIsTimerStarted] = useState(false);
+
+  const [audio] = useState(new Audio(sound));
+  const [audioPlayed, setAudioPlayed] = useState(false);
 
   const startTimer = () => {
     setIsRunning(true);
@@ -22,6 +26,16 @@ const Timer = () => {
     setDashOffset(0);
   };
 
+  const playAudio = () => {
+    audio.play()
+      .then(() => {
+        setAudioPlayed(true);
+      })
+      .catch(error => {
+        console.error('Error playing audio:', error);
+      });
+  };
+
   useEffect(() => {
     let i = 1;
     let interval;
@@ -31,6 +45,7 @@ const Timer = () => {
         if (i === time + 1) {
           clearInterval(interval);
           setIsRunning(false);
+          playAudio();
           return;
         }
         setDashOffset((prevOffset) => prevOffset + (initialOffset / time));
@@ -39,7 +54,20 @@ const Timer = () => {
     }
 
     return () => clearInterval(interval);
-  }, [initialOffset, time, isRunning]);
+  }, [initialOffset, time, isRunning, audio]);
+
+  useEffect(() => {
+    const handleInteraction = () => {
+      startTimer();
+      document.removeEventListener('click', handleInteraction);
+    };
+
+    document.addEventListener('click', handleInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+    };
+  }, []);
 
   const minutes = Math.floor((time - (time * dashOffset) / initialOffset) / 60);
   const seconds = Math.floor((time - (time * dashOffset) / initialOffset) % 60);
@@ -63,11 +91,10 @@ const Timer = () => {
               transition: 'stroke-dashoffset 1s linear',
               transform: 'rotate(-90deg) scaleY(-1)',
               transformOrigin: '50% 50%',
-              // strokeLinecap: 'round',
             }}
           />
           <text x="50%" y="50%" textAnchor="middle" dy="0.35em" fontSize="40" fill="#dea821">
-            { isTimerStarted ? `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}` : '00:00'}
+            {isTimerStarted ? `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}` : '00:00'}
           </text>
         </g>
       </svg>

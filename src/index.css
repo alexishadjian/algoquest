@@ -84,6 +84,7 @@ button.secondary {
 .container {
   display: flex;
   flex-flow: column;
+  position: relative;
   gap: 50px;
   width: 400px;
   padding: 30px 0;
@@ -123,4 +124,26 @@ button.secondary {
 
 .grp {
   margin-bottom: 30px;
+}
+
+.help-popup {
+  position: absolute;
+  padding: 30px 0;
+  overflow-x: scroll;
+  background-color: #242424;
+  inset: 0;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.help-popup::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.back-btn {
+  color: #dea821;
+  text-decoration: underline;
+  cursor: pointer;
 }
