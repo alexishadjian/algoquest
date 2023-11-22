@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const Timer = () => {
-  const [time, setTime] = useState(30); // 300 secondes = 5 minutes
-  const [initialOffset, setInitialOffset] = useState(754); // Ajusté en conséquence
-  const [dashOffset, setDashOffset] = useState(0); // Démarre avec le cercle plein
+  const [time, setTime] = useState(300); // 300 secondes = 5 minutes
+  const [initialOffset, setInitialOffset] = useState(754);
+  const [dashOffset, setDashOffset] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isTimerStarted, setIsTimerStarted] = useState(false);
 
@@ -55,30 +55,28 @@ const Timer = () => {
             cy="150"
             cx="150"
             strokeWidth="30"
-            stroke="#6fdb6f"
+            stroke="#dea821"
             fill="none"
             style={{
               strokeDasharray: initialOffset,
               strokeDashoffset: isTimerStarted ? dashOffset : initialOffset,
               transition: 'stroke-dashoffset 1s linear',
-              transform: 'rotate(-90deg) scaleY(-1)', // Inversion de la direction
+              transform: 'rotate(-90deg) scaleY(-1)',
               transformOrigin: '50% 50%',
-              strokeLinecap: 'round',
+              // strokeLinecap: 'round',
             }}
           />
-          {isTimerStarted && (
-            <text x="50%" y="50%" textAnchor="middle" dy="0.35em" fontSize="40" fill="#6fdb6f">
-              {`${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`}
-            </text>
-          )}
+          <text x="50%" y="50%" textAnchor="middle" dy="0.35em" fontSize="40" fill="#dea821">
+            { isTimerStarted ? `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}` : '00:00'}
+          </text>
         </g>
       </svg>
       <div className="button-container">
-        <button onClick={isRunning ? pauseTimer : startTimer}>
+        <button className="primary" onClick={isRunning ? pauseTimer : startTimer}>
           {isRunning ? 'Pause' : 'Start'}
         </button>
         {isTimerStarted && (
-          <button onClick={resetTimer}>Reset</button>
+          <button className="secondary" onClick={resetTimer}>Reset</button>
         )}
       </div>
     </div>

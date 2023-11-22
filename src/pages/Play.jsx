@@ -16,10 +16,12 @@ const Home = () => {
 
     return (
         <div className="container">
-            <h2 className="question title">{datas.question}</h2>
-            <NavLink to="/help" className="help-btn"><button>Help</button></NavLink>
+            <div className="question title">
+                <h2 className="">{datas.question}</h2>
+                <NavLink to="/help" className="help-btn"><button className="secondary">Help</button></NavLink>
+            </div>
             <Timer />
-            <button className="" onClick={ () => setRepSate(!repSate)} >Show answer</button>
+            <button className="primary" onClick={ () => setRepSate(!repSate)} >Show answer</button>
             {repSate ? (
                 <div>
                     {datas.responseCardsIds.map( (cardId, index) => (
