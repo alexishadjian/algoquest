@@ -45,6 +45,7 @@ const Timer = () => {
         if (i === time + 1) {
           clearInterval(interval);
           setIsRunning(false);
+          resetTimer();
           playAudio();
           return;
         }
