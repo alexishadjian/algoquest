@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import reponses from '../data/reponses';
 import ProgCard from '../components/ProgCard';
+import { NavLink } from "react-router-dom";
 import Timer from '../components/Timer';
 
 const Home = () => {
@@ -15,7 +16,8 @@ const Home = () => {
 
     return (
         <div className="container">
-            <h3 className="question">{datas.question}</h3>
+            <h2 className="question title">{datas.question}</h2>
+            <NavLink to="/help" className="help-btn"><button>Help</button></NavLink>
             <Timer />
             <button className="" onClick={ () => setRepSate(!repSate)} >Show answer</button>
             {repSate ? (

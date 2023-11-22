@@ -5,6 +5,7 @@ import RootLayout from './layouts/RootLayout';
 
 import HomePage from './pages/Home';
 import PlayPage from './pages/Play';
+import HelpPage from './pages/Help';
 
 // const App = () => (
 //   <Router>
@@ -31,6 +32,7 @@ function App() {
               <Route index element={<HomePage />} />
               <Route path="/play/:id" element={<PlayPage />} />
               <Route path="/reponse/:id" element={<ReponsePage />} />
+              <Route path="/help" element={<HelpPage />} />
             </Route>
           )
         )

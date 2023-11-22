@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Timer = () => {
-  const [time, setTime] = useState(300); // 300 secondes = 5 minutes
+  const [time, setTime] = useState(30); // 300 secondes = 5 minutes
   const [initialOffset, setInitialOffset] = useState(754); // Ajusté en conséquence
   const [dashOffset, setDashOffset] = useState(0); // Démarre avec le cercle plein
   const [isRunning, setIsRunning] = useState(false);
