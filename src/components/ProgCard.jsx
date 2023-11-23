@@ -6,7 +6,7 @@ const ProgCard = ({ id }) => {
 
   return (
     <div>
-      <h3>{card.content}</h3>
+      <h4>{card.content}</h4>
     </div>
   );
 };
