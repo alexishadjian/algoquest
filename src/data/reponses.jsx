@@ -54,6 +54,26 @@ const reponses = [
         question: "Display 'smaller' if 8 > 2, sinon afficher 'bigger'",
         responseCardsIds: [1,2,9,11,26,34],
     },
+    {
+        id: 12,
+        question: "Find the average of 3 and 8",
+        responseCardsIds: [1,2,3,5,16,29,32],
+    },
+    {
+        id: 13,
+        question: "Find the average of 6 and 3",
+        responseCardsIds: [1,2,3,8,12,29,35],
+    },
+    {
+        id: 14,
+        question: "Display the area of a rectangle with a length of 10 and a width of 3",
+        responseCardsIds: [1,2,10,12,19],
+    },
+    {
+        id: 15,
+        question: "Display the area of a rectangle with a width of 5 and a length of 8",
+        responseCardsIds: [1,2,10,12,19],
+    },
 ];
 
 export default reponses;
