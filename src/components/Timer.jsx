@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import sound from '../assets/timer.mp3'
 
 const Timer = () => {
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(300);
   const [initialOffset, setInitialOffset] = useState(754);
   const [dashOffset, setDashOffset] = useState(0);
   const [isRunning, setIsRunning] = useState(false);

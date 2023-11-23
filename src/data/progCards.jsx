@@ -20,6 +20,10 @@ const progCards = [
     {id: 16, content: "y = 8"},
     {id: 16, content: "y = 10"},
 
+    {id: 29, content: "z = 2"},
+    {id: 30, content: "z = 5"},
+    {id: 31, content: "z = 10"},
+
 
     {id: 17, content: "DISPLAY x + y"},
     {id: 18, content: "DISPLAY x - y"},
