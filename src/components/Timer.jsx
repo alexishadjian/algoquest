@@ -29,10 +29,10 @@ const Timer = () => {
   };
 
   const playAudio = () => {
+    resetTimer();
     audio.play()
       .then(() => {
         setAudioPlayed(true);
-        resetTimer();
       })
       .catch(error => {
         console.error('Error playing audio:', error);
@@ -44,7 +44,7 @@ const Timer = () => {
 
     if (isRunning) {
       interval = setInterval(() => {
-        if (elapsedTime + 1 === time) {
+        if (elapsedTime === time) {
           clearInterval(interval);
           setIsRunning(false);
           playAudio();
@@ -65,8 +65,8 @@ const Timer = () => {
   }, [isTimerStarted]);
 
   useEffect(() => {
-    startTimer(); // Démarrer automatiquement le timer au chargement
-  }, []); // Le tableau de dépendances vide pour s'assurer que cela ne s'exécute qu'une seule fois
+    startTimer();
+  }, []);
 
   const minutes = Math.floor((time - (time * dashOffset) / initialOffset) / 60);
   const seconds = Math.floor((time - (time * dashOffset) / initialOffset) % 60);
