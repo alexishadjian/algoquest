@@ -46,12 +46,12 @@ const reponses = [
     },
     {
         id: 10,
-        question: "Display 'bigger' if 5 > 10, sinon afficher 'smaller'",
+        question: "Display 'bigger' if 5 > 10, else display 'smaller'",
         responseCardsIds: [1,2,7,16,26,33,28,34],
     },
     {
         id: 11,
-        question: "Display 'smaller' if 8 > 2, sinon afficher 'bigger'",
+        question: "Display 'smaller' if 8 > 2, else display 'bigger'",
         responseCardsIds: [1,2,9,11,26,34],
     },
     {
@@ -73,6 +73,11 @@ const reponses = [
         id: 15,
         question: "Display the area of a rectangle with a width of 5 and a length of 8",
         responseCardsIds: [1,2,10,12,19],
+    },
+    {
+        id: 16,
+        question: "Obtain the half of 4 x 6",
+        responseCardsIds: [1,2,3,6,15,29,32],
     },
 ];
 
