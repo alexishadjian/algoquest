@@ -58,6 +58,8 @@ const Timer = () => {
   }, [initialOffset, time, isRunning, audio]);
 
   useEffect(() => {
+    startTimer();
+
     const handleInteraction = () => {
       startTimer();
       document.removeEventListener('click', handleInteraction);

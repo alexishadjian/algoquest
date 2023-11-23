@@ -7,7 +7,7 @@ const PopupHelp = ({isOpenAnswer, setIsOpenAnswer, datas}) => {
   return (
     <div className="help-popup">
       <span className="back-btn" onClick={ () => setIsOpenAnswer(!isOpenAnswer)}>{'< back'}</span>
-      <h1>Help</h1>
+      <h1>Answer</h1>
       <div className="help-grp">
         <div>
           {datas.responseCardsIds.map( (cardId, index) => (
