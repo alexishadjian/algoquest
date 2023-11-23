@@ -30,6 +30,11 @@ const progCards = [
     {id: 19, content: "DISPLAY x * y"},
     {id: 20, content: "DISPLAY x / y"},
 
+    {id: 33, content: "DISPLAY bigger"},
+    {id: 34, content: "DISPLAY smaller"},
+    
+    {id: 32, content: "x * y / z"},
+
     {id: 21, content: "+"},
     {id: 22, content: "-"},
     {id: 23, content: "*"},

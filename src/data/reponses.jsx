@@ -31,28 +31,28 @@ const reponses = [
     },
     {
         id: 7,
-        question: "Obtain 25 by calculating the area of a triangle",
-        responseCardsIds: [1,3,9,12,18],
+        question: "Obtain the area of a triangle with a base of 5 and a height of 10",
+        responseCardsIds: [1,2,3,7,16,29,32],
     },
     {
         id: 8,
-        question: "Obtain 12 by calculating the area of a triangle",
-        responseCardsIds: [1,3,9,12,18],
+        question: "Obtain the area of a triangle with a base of 3 and a height of 8",
+        responseCardsIds: [1,2,3,5,16,29,32],
     },
     {
         id: 9,
-        question: "Obtain 24 by calculating the area of a triangle",
-        responseCardsIds: [1,3,9,12,18],
+        question: "Obtain the area of a triangle with a base 6 and a height of 8",
+        responseCardsIds: [1,2,3,8,16,29,32],
     },
     {
         id: 10,
         question: "Display 'bigger' if 5 > 10, sinon afficher 'smaller'",
-        responseCardsIds: [1,3,9,12,18],
+        responseCardsIds: [1,2,7,16,26,33,28,34],
     },
     {
         id: 11,
         question: "Display 'smaller' if 8 > 2, sinon afficher 'bigger'",
-        responseCardsIds: [1,3,9,12,18],
+        responseCardsIds: [1,2,9,11,26,34],
     },
 ];
 
