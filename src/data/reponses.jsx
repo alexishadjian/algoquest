@@ -41,7 +41,7 @@ const reponses = [
     },
     {
         id: 9,
-        question: "Obtain the area of a triangle with a base 6 and a height of 8",
+        question: "Obtain the area of a triangle with a base of 6 and a height of 8",
         responseCardsIds: [1,2,3,8,16,29,32],
     },
     {

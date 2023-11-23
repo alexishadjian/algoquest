@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import sound from '../assets/timer.mp3'
+import sound from '../assets/timer.mp3';
 
 const Timer = () => {
-  const [time, setTime] = useState(5);
+  const [time, setTime] = useState(300);
   const [initialOffset, setInitialOffset] = useState(754);
   const [dashOffset, setDashOffset] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isTimerStarted, setIsTimerStarted] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState(0);
 
   const [audio] = useState(new Audio(sound));
   const [audioPlayed, setAudioPlayed] = useState(false);
@@ -24,12 +25,14 @@ const Timer = () => {
     setIsRunning(false);
     setIsTimerStarted(false);
     setDashOffset(0);
+    setElapsedTime(0);
   };
 
   const playAudio = () => {
     audio.play()
       .then(() => {
         setAudioPlayed(true);
+        resetTimer();
       })
       .catch(error => {
         console.error('Error playing audio:', error);
@@ -37,40 +40,33 @@ const Timer = () => {
   };
 
   useEffect(() => {
-    let i = 1;
     let interval;
 
     if (isRunning) {
       interval = setInterval(() => {
-        if (i === time + 1) {
+        if (elapsedTime + 1 === time) {
           clearInterval(interval);
           setIsRunning(false);
-          resetTimer();
           playAudio();
           return;
         }
         setDashOffset((prevOffset) => prevOffset + (initialOffset / time));
-        i++;
+        setElapsedTime((prevTime) => prevTime + 1);
       }, 1000);
     }
 
     return () => clearInterval(interval);
-  }, [initialOffset, time, isRunning, audio]);
+  }, [initialOffset, time, isRunning, audio, elapsedTime]);
 
   useEffect(() => {
-    startTimer();
-
-    const handleInteraction = () => {
+    if (isTimerStarted) {
       startTimer();
-      document.removeEventListener('click', handleInteraction);
-    };
+    }
+  }, [isTimerStarted]);
 
-    document.addEventListener('click', handleInteraction);
-
-    return () => {
-      document.removeEventListener('click', handleInteraction);
-    };
-  }, []);
+  useEffect(() => {
+    startTimer(); // Démarrer automatiquement le timer au chargement
+  }, []); // Le tableau de dépendances vide pour s'assurer que cela ne s'exécute qu'une seule fois
 
   const minutes = Math.floor((time - (time * dashOffset) / initialOffset) / 60);
   const seconds = Math.floor((time - (time * dashOffset) / initialOffset) % 60);
@@ -79,7 +75,6 @@ const Timer = () => {
     <div className="timer-container">
       <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
         <g>
-          <title>Layer 1</title>
           <circle
             className="circle_animation"
             r="120"

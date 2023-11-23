@@ -32,8 +32,23 @@ const PopupHelp = ({isOpenHelp, setIsOpenHelp}) => {
           <span>IF x > 10</span>
         </div>
       </div>
+      <div className="help-grp">
+        <h3>Formulas</h3>
+        <p>To obtain the area of a <strong>triangle</strong> we must use this formula : </p>
+        <div className="help-exemple">
+          <span> base x height / 2</span>
+        </div>
+        <p>To obtain the area of a <strong>rectangle</strong> we must use this formula :</p>
+        <div className="help-exemple">
+          <span> length x width</span>
+        </div>
+        <p>To obtain the <strong>average</strong> we must do the sum of all values and divide by the number of values</p>
+      </div>
     </div>
   );
 };
+
+// formule triangle et rectangle
+// moyenne
 
 export default PopupHelp;
